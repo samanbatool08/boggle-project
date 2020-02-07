@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./styles/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="current-word">
+        <h2>Current Word:</h2>
+        <p id="letter"></p>
+        <button id='add-word'>Add Word</button><br>
+    </div>
+    <div class="container">
+        <div class="item" data-x-id="0" data-y-id="0">A</div>
+        <div class="item" data-x-id="0" data-y-id="1">B</div>
+        <div class="item" data-x-id="0" data-y-id="2">C</div>
+        <div class="item" data-x-id="0" data-y-id="3">D</div>
+        <div class="item" data-x-id="1" data-y-id="0">F</div>
+        <div class="item" data-x-id="1" data-y-id="1">G</div>
+        <div class="item" data-x-id="1" data-y-id="2">H</div>
+        <div class="item" data-x-id="1" data-y-id="3">I</div>
+        <div class="item" data-x-id="2" data-y-id="0">J</div>
+        <div class="item" data-x-id="2" data-y-id="1">K</div>
+        <div class="item" data-x-id="2" data-y-id="2">L</div>
+        <div class="item" data-x-id="2" data-y-id="3">M</div>
+        <div class="item" data-x-id="3" data-y-id="0">N</div>
+        <div class="item" data-x-id="3" data-y-id="1">O</div>
+        <div class="item" data-x-id="3" data-y-id="2">P</div>
+        <div class="item" data-x-id="3" data-y-id="3">E</div>
+
+    </div>
+    <br>
+
+    <div id="words-container">
+        Played Words:
+        <ul id='words'>
+
+        </ul>
+
+    </div>
+
+
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
