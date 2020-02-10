@@ -36,12 +36,16 @@
                     let allItems = document.getElementsByClassName('item')
                     Array.from(allItems).forEach(item => item.style.backgroundColor = '#80CBC4')
                 } else if (e.target === addWordButton) {
+                    if (letterBar.innerText.length < 3) {
+                        alert('Invalid, must be 3 letters or more')
+                    } else {
                     allWordsArray.push(letterBar.innerText)
                     createWordLi(letterBar.innerText)
                     letterBar.innerText = ''
                     let allItems = document.getElementsByClassName('item')
                     Array.from(allItems).forEach(item => item.style.backgroundColor = '#80CBC4')
                     letterCoordinates = []
+                    }
                 }
             }
         })
