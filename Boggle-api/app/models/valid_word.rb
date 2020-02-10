@@ -1,0 +1,2 @@
+class ValidWord < ApplicationRecord
+end

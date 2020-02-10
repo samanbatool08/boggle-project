@@ -1,4 +1,4 @@
-    window.addEventListener('DOMContentLoaded', function(){
+    window.addEventListener('DOMContentLoaded', function() {
 
         const startTimerButton = document.getElementById('start-timer')
         const timerOuterDiv = document.getElementById('timer-container')
@@ -13,13 +13,13 @@
         let currentWordContainer = document.getElementById('current-word-container')
         let timerInnerP = document.createElement('p')
         let letterCoordinates = []
-        let  time = 0;
+        let time = 0;
 
-        timerOuterDiv.addEventListener('click', function(e){
+        timerOuterDiv.addEventListener('click', function(e) {
             if (e.target === startTimerButton) {
                 grid.innerHTML = ''
-                timerOuterDiv.replaceChild(timerInnerP,startTimerButton)
-                time = 3
+                timerOuterDiv.replaceChild(timerInnerP, startTimerButton)
+                time = 30
                 timerInnerP.innerText = `Time: ${time}`
                 setInterval(countDown, 1000)
                 createBoard()
@@ -27,16 +27,15 @@
                 wordsContainer.style.visibility = 'visible'
             }
         })
-        
-        currentWordContainer.addEventListener('click', function(e){
-            while (time > 0) {
+
+        currentWordContainer.addEventListener('click', function(e) {
+            if (time > 0) {
                 if (e.target === clearBoardButton) {
                     letterCoordinates = []
                     letterBar.innerText = ''
                     let allItems = document.getElementsByClassName('item')
                     Array.from(allItems).forEach(item => item.style.backgroundColor = '#80CBC4')
-                }
-                else if (e.target === addWordButton) {
+                } else if (e.target === addWordButton) {
                     allWordsArray.push(letterBar.innerText)
                     createWordLi(letterBar.innerText)
                     letterBar.innerText = ''
@@ -51,19 +50,18 @@
             let wordLi = document.createElement('li')
             wordLi.innerText = word
             submittedWordsUl.appendChild(wordLi)
-            console.log(submittedWordsUl)
+                // console.log(submittedWordsUl)
         }
-       
+
 
         function countDown() {
-            if (time > 0){ 
+            if (time > 0) {
                 time--
                 timerInnerP.innerText = `Time: ${time}`
-            }
-            else if (time === 0) {
+            } else if (time === 0) {
                 alert('Time\'s up!')
                 time = -1
-                timerOuterDiv.replaceChild(startTimerButton,timerInnerP)
+                timerOuterDiv.replaceChild(startTimerButton, timerInnerP)
                 currentWordContainer.style.visibility = 'hidden'
                 let allItems = document.getElementsByClassName('item')
                 Array.from(allItems).forEach(item => item.style.backgroundColor = '#80CBC4')
@@ -86,32 +84,25 @@
             }
         })
 
-        currentWordContainer.addEventListener('click', function(e) {
-            let addButton = e.target
-            let wordToAdd = addButton.parentNode.querySelector('p').innerText
-            let playedWords = document.getElementById('words')
-            let newPlayedWord = document.createElement('li')
-            newPlayedWord.innerText = wordToAdd
-            playedWords.append(newPlayedWord)
-        }) //ends currentwordbox eventlistener
+
 
         const letterArrays = [
-            ['A','A','E','E','G','N'],
-            ['E','L','R','T','T','Y'],
-            ['A','O','O','T','T','W'],
-            ['A','B','B','J','O','O'],
-            ['E','H','R','T','V','W'],
-            ['C','I','M','O','T','U'],
-            ['D','I','S','T','T','Y'],
-            ['E','I','O','S','S','T'],
-            ['D','E','L','R','V','Y'],
-            ['A','C','H','O','P','S'],
-            ['H','I','M','N','Q','U'],
-            ['E','E','I','N','S','U'],
-            ['E','E','G','H','N','W'],
-            ['A','F','F','K','P','S'],
-            ['H','L','N','N','R','Z'],
-            ['D','E','I','L','R','X']
+            ['A', 'A', 'E', 'E', 'G', 'N'],
+            ['E', 'L', 'R', 'T', 'T', 'Y'],
+            ['A', 'O', 'O', 'T', 'T', 'W'],
+            ['A', 'B', 'B', 'J', 'O', 'O'],
+            ['E', 'H', 'R', 'T', 'V', 'W'],
+            ['C', 'I', 'M', 'O', 'T', 'U'],
+            ['D', 'I', 'S', 'T', 'T', 'Y'],
+            ['E', 'I', 'O', 'S', 'S', 'T'],
+            ['D', 'E', 'L', 'R', 'V', 'Y'],
+            ['A', 'C', 'H', 'O', 'P', 'S'],
+            ['H', 'I', 'M', 'N', 'Q', 'U'],
+            ['E', 'E', 'I', 'N', 'S', 'U'],
+            ['E', 'E', 'G', 'H', 'N', 'W'],
+            ['A', 'F', 'F', 'K', 'P', 'S'],
+            ['H', 'L', 'N', 'N', 'R', 'Z'],
+            ['D', 'E', 'I', 'L', 'R', 'X']
         ]
 
         function getRandomIndex() {
@@ -119,17 +110,18 @@
         }
 
         function createBoard() {
-            for (let x=0; x < 4; x++){
-                for (let y=0; y < 4; y++){
-                    let currentLetterIndex = x+y;
+            for (let x = 0; x < 4; x++) {
+                for (let y = 0; y < 4; y++) {
+                    let currentLetterIndex = x + y;
                     let currentLetter = letterArrays[currentLetterIndex][getRandomIndex()]
                     grid.insertAdjacentHTML("beforeend", `
-                    <div class="item" data-x-id=${x} data-y-id=${y}>${currentLetter}</div>`
-                )}
+                    <div class="item" data-x-id=${x} data-y-id=${y}>${currentLetter}</div>`)
+                }
             }
         }
+
+        doneButton.addEventListener('click', function(e) {
+            console.log(allWordsArray)
+            fetch("localhost")
+        })
     })
-
-
-
->>>>>>> timer
