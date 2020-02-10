@@ -4,7 +4,7 @@ body {
     background-color: blueviolet;
 }
 
-.container {
+#board-container {
     display: grid;
     grid-template-columns: auto auto auto auto;
     background-color: #3E2723;
