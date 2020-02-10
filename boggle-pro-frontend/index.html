@@ -10,40 +10,42 @@
 </head>
 
 <body>
-    <div class="current-word" id='current-word'>
+    <div id="header"> Boggle </div>
+    <div id="timer-container">
+        <button id='start-timer'>New game</button>     
+    </div>
+    <div class="current-word" id="current-word-container" style='visibility: hidden'>                    
         <h2>Current Word:</h2>
         <p id="letter"></p>
         <button id='add-word'>Add Word</button><br>
-    </div>
-    <div class="container">
-        <div class="item" data-x-id="0" data-y-id="0">A</div>
-        <div class="item" data-x-id="0" data-y-id="1">B</div>
-        <div class="item" data-x-id="0" data-y-id="2">C</div>
-        <div class="item" data-x-id="0" data-y-id="3">D</div>
-        <div class="item" data-x-id="1" data-y-id="0">F</div>
-        <div class="item" data-x-id="1" data-y-id="1">G</div>
-        <div class="item" data-x-id="1" data-y-id="2">H</div>
-        <div class="item" data-x-id="1" data-y-id="3">I</div>
-        <div class="item" data-x-id="2" data-y-id="0">J</div>
-        <div class="item" data-x-id="2" data-y-id="1">K</div>
-        <div class="item" data-x-id="2" data-y-id="2">L</div>
-        <div class="item" data-x-id="2" data-y-id="3">M</div>
-        <div class="item" data-x-id="3" data-y-id="0">N</div>
-        <div class="item" data-x-id="3" data-y-id="1">O</div>
-        <div class="item" data-x-id="3" data-y-id="2">P</div>
-        <div class="item" data-x-id="3" data-y-id="3">E</div>
-
+        <button id='clear-board'>Clear</button></div>
+    <div id="board-container">
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
     </div>
     <br>
 
-    <div id="words-container">
-        Played Words:
-        <ul id='words'>
-
+    <div id="words-container" style='visibility: hidden'>
+        <ul id="submitted-words-ul">
         </ul>
-
     </div>
     <button class="done" id="done">Done!</button>
+
+
 
 
 
