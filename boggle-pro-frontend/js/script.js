@@ -4,8 +4,12 @@
         const timerOuterDiv = document.getElementById('timer-container')
         const grid = document.getElementById('board-container')
         const wordsContainer = document.getElementById('words-container')
-        let clearBoardButton;
-        let currentWordDiv = document.createElement('div')
+        const letterBar = document.getElementById('letter')
+        const clearBoardButton = document.getElementById('clear-board')
+        const addWordButton = document.getElementById('add-word')
+        const submittedWordsUl = document.getElementById('submitted-words-ul')
+        let allWordsArray = []
+        let currentWordContainer = document.getElementById('current-word-container')
         let timerInnerP = document.createElement('p')
         let letterCoordinates = []
         let  time = 0;
@@ -14,48 +18,56 @@
             if (e.target === startTimerButton) {
                 grid.innerHTML = ''
                 timerOuterDiv.replaceChild(timerInnerP,startTimerButton)
-                time = 3;
-                timerInnerP.innerText = time;
+                time = 20
+                timerInnerP.innerText = `Time: ${time}`
                 setInterval(countDown, 1000)
                 createBoard()
-                wordsContainer.innerHTML = `Played Words:
-                <ul id='words'></ul>`
-                currentWordDiv.innerHTML = `
-                    <h2>Current Word:</h2>
-                    <p id="letter"></p>
-                    <button id='add-word'>Add Word</button><br>
-                    <button id='clear-board'>Clear</button>`
-                clearBoardButton = document.getElementById('clear-board')
-                currentWordDiv.className = 'current-word'
-                timerOuterDiv.append(currentWordDiv)
-                debugger
-            }
-            else if (e.target === clearBoardButton) {
-                letterCoordinates = []
-                currentWordDiv.innerText = ''
-
+                currentWordContainer.style.visibility = 'visible'
+                wordsContainer.style.visibility = 'visible'
             }
         })
+        
+        currentWordContainer.addEventListener('click', function(e){
+            if (e.target === clearBoardButton) {
+                letterCoordinates = []
+                letterBar.innerText = ''
+                let allItems = document.getElementsByClassName('item')
+                Array.from(allItems).forEach(item => item.style.backgroundColor = '#80CBC4')
+            }
+            else if (e.target === addWordButton) {
+                allWordsArray.push(letterBar.innerText)
+                createWordLi(letterBar.innerText)
+                letterBar.innerText = ''
+                let allItems = document.getElementsByClassName('item')
+                Array.from(allItems).forEach(item => item.style.backgroundColor = '#80CBC4')
+                letterCoordinates = []
+            }
+        })
+
+        function createWordLi(word) {
+            let wordLi = document.createElement('li')
+            wordLi.innerText = word
+            submittedWordsUl.appendChild(wordLi)
+            console.log(submittedWordsUl)
+        }
+       
 
         function countDown() {
             if (time > 0){ 
                 time--
-                timerInnerP.innerText = time
+                timerInnerP.innerText = `Time: ${time}`
             }
             else if (time === 0) {
                 alert('Time\'s up!')
                 time = -1
                 timerOuterDiv.replaceChild(startTimerButton,timerInnerP)
-                currentWordDiv.remove()
+                //currentWordDiv.remove()
                 let allItems = document.getElementsByClassName('item')
-                
                 Array.from(allItems).forEach(item => item.style.backgroundColor = '#80CBC4')
             }
         }
 
-
         grid.addEventListener('click', function(e) {
-            const letterBar = document.getElementById('letter')
 
             let letterXId = parseInt(e.target.dataset.xId)
             let letterYId = parseInt(e.target.dataset.yId)
@@ -65,7 +77,7 @@
             } else if (letterCoordinates.length > 0 && (letterXId >= letterCoordinates[0][0] + 2 || letterYId >= letterCoordinates[0][1] + 2 || letterXId <= letterCoordinates[0][0] - 2 || letterYId <= letterCoordinates[0][1] - 2)) {
                 alert('Can\'t click this')
             } else {
-                e.target.style.backgroundColor = "red"
+                e.target.style.backgroundColor = '#379683'
                 letterCoordinates.unshift([letterXId, letterYId])
                 letterBar.innerText += letter
             }
@@ -91,7 +103,7 @@
         ]
 
         function getRandomIndex() {
-            return Math.floor(Math.random() * 5)
+            return Math.floor(Math.random() * 6)
         }
 
         function createBoard() {

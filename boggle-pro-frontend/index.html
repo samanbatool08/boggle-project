@@ -10,32 +10,41 @@
 </head>
 
 <body>
-    <h1>Boggle</h1><br>
+    <div id="header"> Boggle </div>
     <div id="timer-container">
         <button id='start-timer'>New game</button>     
     </div>
+    <div id="current-word-container" style='visibility: hidden'>                    
+        <h2>Current Word:</h2>
+        <p id="letter"></p>
+        <button id='add-word'>Add Word</button><br>
+        <button id='clear-board'>Clear</button></div>
     <div id="board-container">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
     </div>
     <br>
 
-    <div id="words-container">
+    <div id="words-container" style='visibility: hidden'>
+        <ul id="submitted-words-ul">
+        </ul>
     </div>
+
+
 
 
 
