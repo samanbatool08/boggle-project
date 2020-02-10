@@ -18,7 +18,7 @@
             if (e.target === startTimerButton) {
                 grid.innerHTML = ''
                 timerOuterDiv.replaceChild(timerInnerP,startTimerButton)
-                time = 20
+                time = 3
                 timerInnerP.innerText = `Time: ${time}`
                 setInterval(countDown, 1000)
                 createBoard()
@@ -28,19 +28,21 @@
         })
         
         currentWordContainer.addEventListener('click', function(e){
-            if (e.target === clearBoardButton) {
-                letterCoordinates = []
-                letterBar.innerText = ''
-                let allItems = document.getElementsByClassName('item')
-                Array.from(allItems).forEach(item => item.style.backgroundColor = '#80CBC4')
-            }
-            else if (e.target === addWordButton) {
-                allWordsArray.push(letterBar.innerText)
-                createWordLi(letterBar.innerText)
-                letterBar.innerText = ''
-                let allItems = document.getElementsByClassName('item')
-                Array.from(allItems).forEach(item => item.style.backgroundColor = '#80CBC4')
-                letterCoordinates = []
+            while (time > 0) {
+                if (e.target === clearBoardButton) {
+                    letterCoordinates = []
+                    letterBar.innerText = ''
+                    let allItems = document.getElementsByClassName('item')
+                    Array.from(allItems).forEach(item => item.style.backgroundColor = '#80CBC4')
+                }
+                else if (e.target === addWordButton) {
+                    allWordsArray.push(letterBar.innerText)
+                    createWordLi(letterBar.innerText)
+                    letterBar.innerText = ''
+                    let allItems = document.getElementsByClassName('item')
+                    Array.from(allItems).forEach(item => item.style.backgroundColor = '#80CBC4')
+                    letterCoordinates = []
+                }
             }
         })
 
@@ -61,7 +63,7 @@
                 alert('Time\'s up!')
                 time = -1
                 timerOuterDiv.replaceChild(startTimerButton,timerInnerP)
-                //currentWordDiv.remove()
+                currentWordContainer.style.visibility = 'hidden'
                 let allItems = document.getElementsByClassName('item')
                 Array.from(allItems).forEach(item => item.style.backgroundColor = '#80CBC4')
             }
