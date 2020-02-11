@@ -14,19 +14,37 @@
         let timerInnerP = document.createElement('p')
         let letterCoordinates = []
         let time = 0;
-
+        let userForm = document.getElementById('user-form')
+        let game_id;
         timerOuterDiv.addEventListener('click', function(e) {
-            if (e.target === startTimerButton) {
-                grid.innerHTML = ''
-                timerOuterDiv.replaceChild(timerInnerP, startTimerButton)
-                time = 30
-                timerInnerP.innerText = `Time: ${time}`
-                setInterval(countDown, 1000)
-                createBoard()
-                currentWordContainer.style.visibility = 'visible'
-                wordsContainer.style.visibility = 'visible'
-            }
-        })
+                if (e.target === startTimerButton) {
+                    e.preventDefault()
+                    grid.innerHTML = ''
+                    timerOuterDiv.replaceChild(timerInnerP, userForm)
+                    time = 30
+                    timerInnerP.innerText = `Time: ${time}`
+                    setInterval(countDown, 1000)
+                    createBoard()
+                    currentWordContainer.style.visibility = 'visible'
+                    wordsContainer.style.visibility = 'visible'
+
+                    let username = e.target.parentNode.username.value
+
+                    fetch('http://localhost:3000/api/v1/games', {
+                            method: "POST",
+                            headers: {
+                                'content-type': 'application/json',
+                                accepts: 'application/json'
+                            },
+                            body: JSON.stringify({ username })
+                        }) //ends fetch
+                        .then(resp => resp.json())
+                        .then(userData => {
+                            game_id = userData.id
+                        })
+
+                } //ends if
+            }) //ends eventlistener
 
         currentWordContainer.addEventListener('click', function(e) {
             if (time > 0) {
@@ -121,7 +139,23 @@
         }
 
         doneButton.addEventListener('click', function(e) {
-            console.log(allWordsArray)
-            fetch("localhost")
+
+            let submittedWords = {
+                word: allWordsArray,
+                game_id: game_id
+            }
+
+            fetch(`http://localhost:3000/api/v1/games/${game_id}/submitted_words`, {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json',
+                        accepts: 'application/json'
+                    },
+                    body: JSON.stringify(submittedWords)
+                }) //ends fetch
+                .then(resp => resp.json())
+                .then(data => console.log(data))
+
+
         })
     })

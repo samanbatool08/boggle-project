@@ -12,9 +12,13 @@
 <body>
     <div id="header"> Boggle </div>
     <div id="timer-container">
-        <button id='start-timer'>New game</button>     
+        <form id='user-form'>
+            <label for='username'>Username:</label>
+            <input type='text' name='username' id='username'>
+            <button type='submit' value="submit" id='start-timer'>New game</button>
+        </form>
     </div>
-    <div class="current-word" id="current-word-container" style='visibility: hidden'>                    
+    <div class="current-word" id="current-word-container" style='visibility: hidden'>
         <h2>Current Word:</h2>
         <p id="letter"></p>
         <button id='add-word'>Add Word</button><br>
