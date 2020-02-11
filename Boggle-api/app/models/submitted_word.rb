@@ -7,6 +7,8 @@ class SubmittedWord < ApplicationRecord
     real = !!ValidWord.find_by(word: self.word)
     self.real = real
   end
+
+
   # def self.real_word?(word)
   #   !!ValidWord.find_by(word: word)
   # end
