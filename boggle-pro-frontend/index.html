@@ -19,13 +19,12 @@
         </form>
     </div>
     <div class="current-word" id="current-word-container" style='visibility: hidden'>
-        <span>Current Word:<p id="letter"></p></span>
-        <div id='word-buttons'>
-            <button id='add-word'>Add Word</button>
-            <button id='clear-board'>Clear</button>
-        </div>
-    </div>
-    <!-- <div id='grid-and-ul'> -->
+        <h2>Current Word:</h2>
+        <p id="letter"></p>
+        <button id='add-word'>Add Word</button><br>
+        <button id='undo'>Undo</button>
+        <button id='clear-board'>Clear</button></div>
+    <div id='grid-and-ul'>
         <div id="board-container">
             <div class="empty-item"></div>
             <div class="empty-item"></div>
@@ -53,7 +52,11 @@
         <div id='finished'>
             <button class="done" id="done">Done!</button>
         </div>
-    <!-- </div> -->
+        <div class='other-features'>
+            <button id='start-over'>Start Over</button>
+            <button id='Help'>Instructions</button>
+        </div>
+    </div>
 
     <div id="myModal" class="modal">
 

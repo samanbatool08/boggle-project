@@ -200,6 +200,10 @@ input[type=text] {
     cursor: pointer;
 }
 
+.other-features {
+    display: none;
+}
+
 
 /* Navy: #05386B
 Dark green: #379683
