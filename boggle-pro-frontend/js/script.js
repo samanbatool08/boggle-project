@@ -31,6 +31,7 @@ window.addEventListener('DOMContentLoaded', function() {
     const doneDiv = document.getElementById('finished')
     const modal = document.getElementById("myModal")
     const span = document.getElementsByClassName("close")[0]
+    const scoreSpan = document.getElementById('score-num')
     let allWordsArray = []
     let currentWordContainer = document.getElementById('current-word-container')
     let timerInnerP = document.createElement('p')
@@ -63,10 +64,10 @@ window.addEventListener('DOMContentLoaded', function() {
                 .then(userData => {
                     game_id = userData.id
                 })
-            }
-        })
+        }
+    })
 
-    
+
     currentWordContainer.addEventListener('click', function(e) {
         if (time > 0) {
             if (e.target === clearBoardButton) {
@@ -78,7 +79,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 if (letterBar.innerText < 3) {
                     alert('must be longer than 3')
                 } else {
-                    allWordsArray.push(letterBar.innerText.toLowerCase)
+                    allWordsArray.push(letterBar.innerText)
                     createWordLi(letterBar.innerText)
                     letterBar.innerText = ''
                     let allItems = document.getElementsByClassName('item')
@@ -160,7 +161,11 @@ window.addEventListener('DOMContentLoaded', function() {
                     body: JSON.stringify(submittedWords)
                 })
                 .then(resp => resp.json())
-                .then(data => console.log(data))
+                .then(userData => {
+                    let finalScore = userData.points
+                    scoreSpan.innerText = finalScore
+                })
+
 
         }
     })

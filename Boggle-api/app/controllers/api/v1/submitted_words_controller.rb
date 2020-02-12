@@ -9,7 +9,7 @@ class Api::V1::SubmittedWordsController < ApplicationController
     def create
         game = Game.find(word_params[:game_id])
         words = word_params[:word]
-        words.each { |word| SubmittedWord.create({word: word, game_id: game.id})}
+        words.each { |word| SubmittedWord.create({word: word.downcase!, game_id: game.id})}
         game.create_score
         render json: game, includes: :submitted_words
     end
