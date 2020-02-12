@@ -32,6 +32,8 @@ window.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById("myModal")
     const span = document.getElementsByClassName("close")[0]
     const scoreSpan = document.getElementById('score-num')
+    const featuresDiv = document.getElementsByClassName('other-features')[0]
+    const undoButton = document.getElementById('undo')
     let allWordsArray = []
     let currentWordContainer = document.getElementById('current-word-container')
     let timerInnerP = document.createElement('p')
@@ -39,15 +41,17 @@ window.addEventListener('DOMContentLoaded', function() {
     let time;
     let userForm = document.getElementById('user-form')
     let game_id;
+    let interval;
 
     timerOuterDiv.addEventListener('click', function(e) {
         if (e.target === startTimerButton) {
+            featuresDiv.style.display = "block";
             e.preventDefault()
             grid.innerHTML = ''
             timerOuterDiv.replaceChild(timerInnerP, userForm)
-            time = 30
+            time = 15
             timerInnerP.innerText = `Time: ${time}`
-            setInterval(countDown, 1000)
+            interval = setInterval(countDown, 1000)
             createBoard()
             currentWordContainer.style.visibility = 'visible'
             wordsContainer.style.visibility = 'visible'
@@ -102,6 +106,7 @@ window.addEventListener('DOMContentLoaded', function() {
             time--
             timerInnerP.innerText = `Time: ${time}`
         } else if (time === 0) {
+            modal.style.display = "block";
             alert('Time\'s up!')
             time = -1
             timerOuterDiv.replaceChild(startTimerButton, timerInnerP)
@@ -143,9 +148,13 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+
+
     doneDiv.addEventListener('click', function(e) {
         if (e.target.id === 'done' || time === 0) {
             modal.style.display = "block";
+            clearInterval(interval)
+            timerInnerP.innerText = ''
 
             let submittedWords = {
                 word: allWordsArray,
@@ -179,5 +188,24 @@ window.addEventListener('DOMContentLoaded', function() {
             modal.style.display = "none";
         }
     }
+
+    undoButton.addEventListener('click', function(e) {
+            let [x, y] = letterCoordinates[0]
+            let allItems = document.getElementsByClassName('item')
+            let allItemsArray = Array.from(allItems)
+            let target = allItemsArray.find(function(tile) {
+                let tileX = parseInt(tile.dataset.xId)
+                let tileY = parseInt(tile.dataset.yId)
+
+                return tileX === x && tileY === y
+            })
+            target.style.backgroundColor = '#80CBC4'
+            let newLetterBarText = letterBar.innerText.slice(0, -1)
+            letterBar.innerText = newLetterBarText
+            letterCoordinates.shift()
+        }) //ends eventlistener
+
+
+
 
 })
