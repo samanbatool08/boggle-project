@@ -1,30 +1,121 @@
 body {
     height: 100%;
     width: 100%;
-    background-color: #8EE4AF;
+    background-color:  #EDF5E7;
+}
+
+@font-face {
+    font-family: 'Bowreghul';
+    src: url('./fonts/Bowreghul.ttf');
 }
 
 #header {
-    padding: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15%;
+    width: 100%;
+    font-family: 'Bowreghul';
+    padding: 10px;
     text-align: center;
-    font: Blippo;
-    font-style: bold;
-    font-size: 75px;
+    font-size: 10vh;
     background-color: #05386B;
     color: #EDF5E7;
 }
 
+#user-form {
+    position: relative;
+    font-family: Arial;
+    font-size: 20px;
+    width: 1500px;
+    color: #05386B;
+    font-weight: bold;
+}
+
+#timer-container {
+    position: absolute;
+    width: 75%;
+    top: 150px;
+    left: 5%;
+    font-family: Helvetica;
+    font-size: 20px;
+    color: #05386B;
+}
+
+
+
+#current-word-container {
+    position: absolute;
+    top: 150px;
+    left: 200px;
+    width: 75%;
+    font-family: Arial;
+    color: #05386B;
+    font-weight: bold;
+}
+
+button {
+    background-color: #05386B; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10%;
+    font: "Open Sans";
+}
+
+input[type=text] {
+    background: #EDF5E7;
+    border-color: #05386B;
+    border-radius: 5%;
+    padding: 10px;
+    width: 20%;
+}
+
+/* #grid-and-ul {
+    position: absolute;
+    top: 300px;
+    left: 5%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+} */
+
 #board-container {
+    position: relative;
     display: grid;
     grid-template-columns: auto auto auto auto;
     background-color: #379683;
     padding: 10px;
     border-radius: 10px;
+    top: 300px;
+    left: 5%;
+    width: 50%;
+    height: 50%;
 }
 
-#grid-and-ul {
-    display: grid;
-    grid-template-columns: 7fr 3fr;
+#words-container {
+    position: relative;
+    border: 5px;
+    border-radius: 5px;
+    background-color: #80CBC4;
+    position: absolute;
+    right: 5%;
+    top: 200px;
+    width: 20%;
+    height: 50%;
+    font-family: Arial;
+    color: #05386B;
+    font-size: 30px;
+}
+
+#letter {
+    color:  #379683;
+    font-size: 30px;
+    font-family: Arial;
 }
 
 .item {
@@ -33,7 +124,9 @@ body {
     padding: 5px;
     font-size: 30px;
     text-align: center;
-    border-radius: 5px
+    border-radius: 5px;
+    font-family: Arial;
+    color: #EDF5E7; 
 }
 
 .empty-item {
@@ -45,13 +138,15 @@ body {
     border-radius: 5px
 }
 
-#words-container {
-    border: 5px;
-    border-radius: 5px;
-    background-color: #80CBC4;
-    border: 1px solid #fff;
-    height: 100px;
-    width: 500px;
+#word-buttons {
+    left: 300px;
+    position: relative;
+}
+
+#finished {
+    top: 350px;
+    left: 1070px;
+    position: relative;
 }
 
 .modal {
@@ -114,4 +209,5 @@ body {
 Dark green: #379683
 neon green: #5cdB95
 light green: #8EE4AF
-whitish: #EDG5E1 */
+whitish: #EDG5E1
+Orange:  */

@@ -2,20 +2,20 @@ window.addEventListener('DOMContentLoaded', function() {
 
     const letterArrays = [
         ['A', 'A', 'E', 'E', 'G', 'N'],
-        ['E', 'L', 'R', 'T', 'T', 'Y'],
-        ['A', 'O', 'O', 'T', 'T', 'W'],
-        ['A', 'B', 'B', 'J', 'O', 'O'],
-        ['E', 'H', 'R', 'T', 'V', 'W'],
         ['C', 'I', 'M', 'O', 'T', 'U'],
         ['D', 'I', 'S', 'T', 'T', 'Y'],
-        ['E', 'I', 'O', 'S', 'S', 'T'],
+        ['A', 'B', 'B', 'J', 'O', 'O'],
+        ['E', 'H', 'R', 'T', 'V', 'W'],
         ['D', 'E', 'L', 'R', 'V', 'Y'],
+        ['E', 'I', 'O', 'S', 'S', 'T'],
+        ['E', 'L', 'R', 'T', 'T', 'Y'],
         ['A', 'C', 'H', 'O', 'P', 'S'],
         ['H', 'I', 'M', 'N', 'Q', 'U'],
         ['E', 'E', 'I', 'N', 'S', 'U'],
-        ['E', 'E', 'G', 'H', 'N', 'W'],
         ['A', 'F', 'F', 'K', 'P', 'S'],
         ['H', 'L', 'N', 'N', 'R', 'Z'],
+        ['E', 'E', 'G', 'H', 'N', 'W'],
+        ['A', 'O', 'O', 'T', 'T', 'W'],
         ['D', 'E', 'I', 'L', 'R', 'X']
     ]
 
@@ -53,7 +53,7 @@ window.addEventListener('DOMContentLoaded', function() {
             timerInnerP.innerText = `Time: ${time}`
             interval = setInterval(countDown, 1000)
             createBoard()
-            currentWordContainer.style.visibility = 'visible'
+            currentWordContainer.style = 'visible'
             wordsContainer.style.visibility = 'visible'
             let username = e.target.parentNode.username.value
             fetch('http://localhost:3000/api/v1/games', {
