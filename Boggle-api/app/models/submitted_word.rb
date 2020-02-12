@@ -8,6 +8,14 @@ class SubmittedWord < ApplicationRecord
     self.real = real
   end
 
+  # after_create :set_final_score
+
+  # def set_final_score
+  #     game = Game.find(params[:id])
+  #     final_score = game.submitted_words.select {|word| word.real == true}.length
+  #     game.points = final_score
+  # end
+
 
   # def self.real_word?(word)
   #   !!ValidWord.find_by(word: word)

@@ -25,11 +25,7 @@ p words["listen"]
 p words["afgdt"]
 
 
-Game.create(username: "Sally", points: 5)
-Game.create(username: "Matt", points: 3)
 
-SubmittedWord.create(words: "magic", game_id: 13)
-SubmittedWord.create(words: "forever", game_id: 14)
 # puts words.class
 # puts wordArray.class
 
