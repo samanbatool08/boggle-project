@@ -23,32 +23,42 @@
         <p id="letter"></p>
         <button id='add-word'>Add Word</button><br>
         <button id='clear-board'>Clear</button></div>
-    <div id="board-container">
-        <div class="empty-item"></div>
-        <div class="empty-item"></div>
-        <div class="empty-item"></div>
-        <div class="empty-item"></div>
-        <div class="empty-item"></div>
-        <div class="empty-item"></div>
-        <div class="empty-item"></div>
-        <div class="empty-item"></div>
-        <div class="empty-item"></div>
-        <div class="empty-item"></div>
-        <div class="empty-item"></div>
-        <div class="empty-item"></div>
-        <div class="empty-item"></div>
-        <div class="empty-item"></div>
-        <div class="empty-item"></div>
-        <div class="empty-item"></div>
-    </div>
-    <br>
+    <div id='grid-and-ul'>
+        <div id="board-container">
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+        </div>
+        <br>
 
-    <div id="words-container" style='visibility: hidden'>
-        <ul id="submitted-words-ul">
-        </ul>
+        <div id="words-container" style='visibility: hidden'>
+            <ul id="submitted-words-ul">
+            </ul>
+        </div>
+        <div id='finished'>
+            <button class="done" id="done">Done!</button>
+        </div>
     </div>
-    <button class="done" id="done">Done!</button>
 
+    <div id="myModal" class="modal">
+
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id='final-score'>Your score is...</p>
+        </div>
 
 
 
