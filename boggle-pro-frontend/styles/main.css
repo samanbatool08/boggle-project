@@ -9,11 +9,17 @@ body {
     src: url('./fonts/Bowreghul.ttf');
 }
 
+#word-control-buttons {
+    position: relative;
+    left: 430px;
+    top: 120px;
+}
+
 #header {
     position: absolute;
     top: 0;
     left: 0;
-    height: 15%;
+    height: 13%;
     width: 100%;
     font-family: 'Bowreghul';
     padding: 10px;
@@ -30,24 +36,23 @@ body {
     width: 1500px;
     color: #05386B;
     font-weight: bold;
+    border: #05386B;
 }
 
 #timer-container {
     position: absolute;
     width: 75%;
-    top: 150px;
-    left: 5%;
+    top: 120px;
+    left: 120px;
     font-family: Helvetica;
     font-size: 20px;
     color: #05386B;
 }
 
-
-
 #current-word-container {
     position: absolute;
-    top: 150px;
-    left: 200px;
+    top: 110px;
+    left: 230px;
     width: 75%;
     font-family: Arial;
     color: #05386B;
@@ -63,8 +68,19 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    border-radius: 10%;
+    border-radius: 10px;
     font: "Open Sans";
+    transition: transform 0.1s linear;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: rgb(59, 107, 155);
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: translateY(4px);
 }
 
 input[type=text] {
@@ -84,32 +100,20 @@ input[type=text] {
     grid-template-columns: 7fr 3fr;
 } */
 
-#board-container {
-    position: relative;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    background-color: #379683;
-    padding: 10px;
-    border-radius: 10px;
-    top: 300px;
-    left: 5%;
-    width: 50%;
-    height: 50%;
-}
-
 #words-container {
     position: relative;
-    border: 5px;
     border-radius: 5px;
-    background-color: #80CBC4;
+    border-color: :#379683;
+    background-color;
     position: absolute;
-    right: 5%;
+    right: 15%;
     top: 200px;
     width: 20%;
-    height: 50%;
+    height: 65%;
     font-family: Arial;
     color: #05386B;
     font-size: 30px;
+    padding: 10px;
 }
 
 #letter {
@@ -118,25 +122,45 @@ input[type=text] {
     font-family: Arial;
 }
 
-.item {
-    background-color: #80CBC4;
-    border: 1px solid #fff;
-    padding: 5px;
-    font-size: 30px;
-    text-align: center;
-    border-radius: 5px;
-    font-family: Arial;
-    color: #EDF5E7; 
+#board-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    background-color: #379683;
+    padding: 10px;
+    border-radius: 10px;
+    top: 150px;
+    left: 100px;
+    width: 500px;
+    height: 500px;
 }
 
 .empty-item {
     background-color: rgb(183, 211, 209);
     border: 1px solid #fff;
-    padding: 20px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    width: 80px;
+    height: 80px;
+    margin: 10px
+}
+
+.item {
+    background-color: rgb(183, 211, 209);
+    border: 1px solid #fff;
+    text-align: center;
+    border-radius: 5px;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
     font-size: 30px;
     text-align: center;
-    border-radius: 5px
+    font-family: Arial;
+    font-weight: bold;
+    color: #05386B
 }
+
 
 #word-buttons {
     left: 300px;
@@ -144,8 +168,8 @@ input[type=text] {
 }
 
 #finished {
-    top: 350px;
-    left: 1070px;
+    top: 325px;
+    left: 1050px;
     position: relative;
 }
 
@@ -202,6 +226,9 @@ input[type=text] {
 
 .other-features {
     display: none;
+    position: relative;
+    top: 115px;
+    left: 120px;
 }
 
 
