@@ -1,7 +1,7 @@
 body {
     height: 100%;
     width: 100%;
-    background-color:  #EDF5E7;
+    background-color: #EDF5E7;
 }
 
 @font-face {
@@ -42,8 +42,6 @@ body {
     color: #05386B;
 }
 
-
-
 #current-word-container {
     position: absolute;
     top: 150px;
@@ -55,7 +53,7 @@ body {
 }
 
 button {
-    background-color: #05386B; 
+    background-color: #05386B;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -74,6 +72,7 @@ input[type=text] {
     padding: 10px;
     width: 20%;
 }
+
 
 /* #grid-and-ul {
     position: absolute;
@@ -113,7 +112,7 @@ input[type=text] {
 }
 
 #letter {
-    color:  #379683;
+    color: #379683;
     font-size: 30px;
     font-family: Arial;
 }
@@ -126,7 +125,7 @@ input[type=text] {
     text-align: center;
     border-radius: 5px;
     font-family: Arial;
-    color: #EDF5E7; 
+    color: #EDF5E7;
 }
 
 .empty-item {
@@ -177,9 +176,14 @@ input[type=text] {
     background-color: #fefefe;
     margin: 15% auto;
     /* 15% from the top and centered */
+    font-family: 'Bowreghul';
+    text-align: center;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 550px;
+    height: 250px;
+    color: #05386B;
+    font-size: 3vh;
     /* Could be more or less, depending on screen size */
 }
 
@@ -202,6 +206,27 @@ input[type=text] {
 
 .other-features {
     display: none;
+}
+
+#modal-header {
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    /* height: 15%; */
+    width: 100%;
+    font-family: 'Bowreghul';
+    /* padding: 10px; */
+    text-align: center;
+    font-size: 8vh;
+    background-color: #05386B;
+    color: #EDF5E7;
+}
+
+#score-num {
+    color: #4C8FB9;
+    font-size: 10vh;
+    font-family: Luminari, fantasy;
+    font-variant-numeric: oldstyle-nums;
 }
 
 

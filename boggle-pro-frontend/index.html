@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div id="header"> B   o   G   G   L   e </div>
+    <div id="header"> B o G G L e </div>
     <div id="timer-container">
         <form id='user-form'>
             <label for='username'>Your name:</label><br>
@@ -59,17 +59,27 @@
     </div>
 
     <div id="myModal" class="modal">
-
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p id='final-score'>Your score is...<span id='score-num'></span></p>
+            <div id="modal-header">F i n a l S c o r e</div>
+            <p id='final-score'>Your score is...</p>
+            <div id='score-num'> </div>
         </div>
+    </div>
+
+    <div id="welcomeModal" class="modal">
+        <div class="welcome-modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-header">F i n a l S c o r e</div>
+            <p id='final-score'>Your score is...</p>
+            <div id='score-num'> </div>
+        </div>
+    </div>
 
 
 
-
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="./js/script.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
