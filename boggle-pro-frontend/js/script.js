@@ -30,11 +30,13 @@ window.addEventListener('DOMContentLoaded', function() {
     const doneButton = document.getElementById('done')
     const doneDiv = document.getElementById('finished')
     const modal = document.getElementById("myModal")
-    const span = document.getElementsByClassName("close")[0]
+    const welcomeModal = document.getElementById("myWelcomeModal")
     const scoreSpan = document.getElementById('score-num')
     const featuresDiv = document.getElementsByClassName('other-features')[0]
     const undoButton = document.getElementById('undo')
     const wordControlButtons = document.getElementById('word-control-buttons')
+    let welcomeCloseButton = document.getElementById('welcome-close')
+    let scoreCloseButton = document.getElementById('score-close')
     let allWordsArray = []
     let currentWordContainer = document.getElementById('current-word-container')
     let timerInnerP = document.createElement('p')
@@ -50,7 +52,7 @@ window.addEventListener('DOMContentLoaded', function() {
             e.preventDefault()
             grid.innerHTML = ''
             timerOuterDiv.replaceChild(timerInnerP, userForm)
-            time = 30
+            time = 60
             timerInnerP.innerText = `Time: ${time}`
             interval = setInterval(countDown, 1000)
             createBoard()
@@ -116,6 +118,7 @@ window.addEventListener('DOMContentLoaded', function() {
             currentWordContainer.style.visibility = 'hidden'
             let allItems = document.getElementsByClassName('item')
             Array.from(allItems).forEach(item => item.style.backgroundColor = '#80CBC4')
+            showScore()
         }
     }
 
@@ -123,24 +126,24 @@ window.addEventListener('DOMContentLoaded', function() {
         let letterXId = parseInt(e.target.dataset.xId)
         let letterYId = parseInt(e.target.dataset.yId)
         let letter = e.target.innerText
-        if (isArrayItemExists(letterCoordinates,[letterXId,letterYId])) {
+        if (isArrayItemExists(letterCoordinates, [letterXId, letterYId])) {
             alert('You\'ve already played this letter')
         } else if (letterCoordinates.length > 0 && (letterXId >= letterCoordinates[0][0] + 2 || letterYId >= letterCoordinates[0][1] + 2 || letterXId <= letterCoordinates[0][0] - 2 || letterYId <= letterCoordinates[0][1] - 2)) {
             alert('Can\'t click this')
         } else if (e.target.className === "item") {
             e.target.style.backgroundColor = '#379683'
-            letterCoordinates.unshift([letterXId,letterYId])
+            letterCoordinates.unshift([letterXId, letterYId])
             letterBar.innerText += letter
         }
     })
 
-    function isArrayItemExists(array , item) {
-        for ( var i = 0; i < array.length; i++ ) {
-            if(JSON.stringify(array[i]) == JSON.stringify(item)){
+    function isArrayItemExists(array, item) {
+        for (var i = 0; i < array.length; i++) {
+            if (JSON.stringify(array[i]) == JSON.stringify(item)) {
                 return true;
             }
-                }
-                return false;
+        }
+        return false;
     }
 
 
@@ -162,47 +165,58 @@ window.addEventListener('DOMContentLoaded', function() {
 
 
     doneDiv.addEventListener('click', function(e) {
-        if (e.target.id === 'done' || time === 0) {
-            modal.style.display = "block";
-            clearInterval(interval)
-            timerInnerP.innerText = ''
-
-            let submittedWords = {
-                word: allWordsArray,
-                game_id: game_id
-            }
-
-            fetch(`http://localhost:3000/api/v1/games/${game_id}/submitted_words`, {
-                    method: "POST",
-                    headers: {
-                        'content-type': 'application/json',
-                        accepts: 'application/json'
-                    },
-                    body: JSON.stringify(submittedWords)
-                })
-                .then(resp => resp.json())
-                .then(userData => {
-                    let finalScore = userData.points
-                    scoreSpan.innerText = finalScore
-                })
-
-
+        if (e.target.id === 'done') {
+            showScore()
         }
     })
 
-    span.onclick = function() {
-        modal.style.display = "none";
-        // featuresDiv.style.display = "none";
-        // timerOuterDiv.replaceChild(userForm, timerInnerP)
+    function showScore() {
+        modal.style.display = "block";
+        clearInterval(interval)
+        timerInnerP.innerText = ''
 
-        // switch to new game feature
+        let submittedWords = {
+            word: allWordsArray,
+            game_id: game_id
+        }
+
+        fetch(`http://localhost:3000/api/v1/games/${game_id}/submitted_words`, {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json',
+                    accepts: 'application/json'
+                },
+                body: JSON.stringify(submittedWords)
+            })
+            .then(resp => resp.json())
+            .then(userData => {
+                let finalScore = userData.points
+                scoreSpan.innerText = finalScore
+            })
     }
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
+
+    welcomeCloseButton.onclick = function(e) {
+        welcomeModal.style.display = "none";
+    }
+
+    scoreCloseButton.onclick = function(e) {
+        modal.style.display = "none"
+    }
+
+    window.onclick = function(e) {
+        console.log(e.target === welcomeModal)
+        if (e.target === welcomeModal) {
+            welcomeModal.style.display = "none";
+        }
+        if (e.target === modal) {
             modal.style.display = "none";
         }
     }
+
+
+
+
 
     undoButton.addEventListener('click', function(e) {
             let [x, y] = letterCoordinates[0]

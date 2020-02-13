@@ -104,7 +104,7 @@ input[type=text] {
 #words-container {
     position: relative;
     border-radius: 5px;
-    border-color: :#379683;
+    border-color: : #379683;
     background-color;
     position: absolute;
     right: 15%;
@@ -145,7 +145,6 @@ input[type=text] {
     width: 80px;
     height: 80px;
     margin: 10px
-
 }
 
 .item {
@@ -162,7 +161,6 @@ input[type=text] {
     font-weight: bold;
     color: #05386B
 }
-
 
 #word-buttons {
     left: 300px;
@@ -257,6 +255,77 @@ input[type=text] {
     font-size: 10vh;
     font-family: Luminari, fantasy;
     font-variant-numeric: oldstyle-nums;
+}
+
+
+/* welcome modal */
+
+.welcome-modal {
+    display: block;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Black w/ opacity */
+}
+
+.welcome-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    font-family: 'Bowreghul';
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 700px;
+    height: 450px;
+    color: #05386B;
+    font-size: x-small;
+}
+
+#modal-header {
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    /* height: 15%; */
+    width: 100%;
+    font-family: 'Bowreghul';
+    /* padding: 10px; */
+    text-align: center;
+    font-size: 8vh;
+    background-color: #05386B;
+    color: #EDF5E7;
+}
+
+#welcome-text {
+    color: #4C8FB9;
+    font-size: 3vh;
+    font-family: Georgia;
+}
+
+#welcome-modal-header {
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    /* height: 15%; */
+    width: 100%;
+    font-family: 'Bowreghul';
+    /* padding: 10px; */
+    text-align: center;
+    font-size: 8vh;
+    background-color: #05386B;
+    color: #EDF5E7;
 }
 
 
