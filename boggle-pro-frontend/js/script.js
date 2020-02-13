@@ -50,7 +50,7 @@ window.addEventListener('DOMContentLoaded', function() {
             e.preventDefault()
             grid.innerHTML = ''
             timerOuterDiv.replaceChild(timerInnerP, userForm)
-            time = 15
+            time = 30
             timerInnerP.innerText = `Time: ${time}`
             interval = setInterval(countDown, 1000)
             createBoard()
@@ -192,6 +192,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
     span.onclick = function() {
         modal.style.display = "none";
+        // featuresDiv.style.display = "none";
+        // timerOuterDiv.replaceChild(userForm, timerInnerP)
+
+        // switch to new game feature
     }
 
     window.onclick = function(event) {
@@ -215,8 +219,6 @@ window.addEventListener('DOMContentLoaded', function() {
             letterBar.innerText = newLetterBarText
             letterCoordinates.shift()
         }) //ends eventlistener
-
-
 
 
 })
