@@ -13,49 +13,50 @@
     <div id="header"> B o G G L e </div>
     <div id="timer-container">
         <form id='user-form'>
-            <label for='username'>Your name:</label><br>
-            <input type='text' name='username' id='username'><br><br>
+            <label for='username'>Your name:</label>
+            <input type='text' name='username' id='username'> 
             <button type='submit' value="submit" id='start-timer'>New game</button>
         </form>
     </div>
     <div class="current-word" id="current-word-container" style='visibility: hidden'>
         <h2>Current Word:</h2>
         <p id="letter"></p>
-        <button id='add-word'>Add Word</button><br>
+    </div> 
+    <div id='word-control-buttons' style='visibility: hidden'>   
+        <button id='add-word'>Add Word</button>
         <button id='undo'>Undo</button>
-        <button id='clear-board'>Clear</button></div>
-    <div id='grid-and-ul'>
-        <div id="board-container">
-            <div class="empty-item"></div>
-            <div class="empty-item"></div>
-            <div class="empty-item"></div>
-            <div class="empty-item"></div>
-            <div class="empty-item"></div>
-            <div class="empty-item"></div>
-            <div class="empty-item"></div>
-            <div class="empty-item"></div>
-            <div class="empty-item"></div>
-            <div class="empty-item"></div>
-            <div class="empty-item"></div>
-            <div class="empty-item"></div>
-            <div class="empty-item"></div>
-            <div class="empty-item"></div>
-            <div class="empty-item"></div>
-            <div class="empty-item"></div>
-        </div>
-        <br>
+        <button id='clear-board'>Clear</button>
+    </div>
+    <div id="board-container">
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+        <div class="empty-item"></div>
+    </div>
+    <br>
 
-        <div id="words-container" style='visibility: hidden'>
-            <ul id="submitted-words-ul">
-            </ul>
-        </div>
-        <div id='finished'>
-            <button class="done" id="done">Done!</button>
-        </div>
-        <div class='other-features'>
-            <button id='start-over'>Start Over</button>
-            <button id='Help'>Instructions</button>
-        </div>
+    <div id="words-container" style='visibility: hidden'>
+        <ul id="submitted-words-ul">
+        </ul>
+    </div>
+    <div id='finished'>
+        <button class="done" id="done" style='visibility: hidden'>Done!</button>
+    </div>
+    <div class='other-features'>
+        <button id='start-over'>Start Over</button>
+        <button id='Help'>Instructions</button>
     </div>
 
     <div id="myModal" class="modal">
