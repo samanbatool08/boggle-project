@@ -36,7 +36,6 @@ body {
     width: 1500px;
     color: #05386B;
     font-weight: bold;
-    border: #05386B;
 }
 
 #timer-container {
@@ -104,10 +103,10 @@ input[type=text] {
 #words-container {
     position: relative;
     border-radius: 5px;
-    border-color: :#379683;
-    background-color;
+    border-color: #379683;
+    background-color:  rgb(183, 211, 209);
     position: absolute;
-    right: 15%;
+    right: 25%;
     top: 200px;
     width: 20%;
     height: 65%;
@@ -121,6 +120,8 @@ input[type=text] {
     color: #379683;
     font-size: 30px;
     font-family: Arial;
+    padding: none;
+    margin: none;
 }
 
 #board-container {
@@ -130,33 +131,33 @@ input[type=text] {
     background-color: #379683;
     padding: 10px;
     border-radius: 10px;
-    top: 150px;
-    left: 100px;
-    width: 500px;
-    height: 500px;
+    top: 165px;
+    left: 170px;
+    width: 455px;
+    height: 455px;
 }
 
 .empty-item {
-    background-color: rgb(183, 211, 209);
-    border: 1px solid #fff;
+    background-color: #8EE4AF;
+    border: 2px solid #fff;
     padding: 10px;
     text-align: center;
     border-radius: 5px;
-    width: 80px;
-    height: 80px;
-    margin: 10px
-
+    width: 70px;
+    height: 70px;
+    margin: 10px;
 }
 
 .item {
-    background-color: rgb(183, 211, 209);
-    border: 1px solid #fff;
+    background-color: #8EE4AF;
+    border: 2px solid #fff;
     text-align: center;
     border-radius: 5px;
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-    font-size: 30px;
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    padding: 10px;
+    font-size: 50px;
     text-align: center;
     font-family: Arial;
     font-weight: bold;
@@ -170,9 +171,10 @@ input[type=text] {
 }
 
 #finished {
-    top: 325px;
-    left: 1050px;
-    position: relative;
+    /* display: none; */
+    position: absolute;
+    left: 75%;
+    top: 86%;
 }
 
 .modal {
@@ -233,9 +235,9 @@ input[type=text] {
 
 .other-features {
     display: none;
-    position: relative;
-    top: 115px;
-    left: 120px;
+    position: absolute;
+    left: 75%;
+    top: 70%;
 }
 
 #modal-header {
