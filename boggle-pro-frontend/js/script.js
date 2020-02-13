@@ -34,6 +34,7 @@ window.addEventListener('DOMContentLoaded', function() {
     const scoreSpan = document.getElementById('score-num')
     const featuresDiv = document.getElementsByClassName('other-features')[0]
     const undoButton = document.getElementById('undo')
+    const wordControlButtons = document.getElementById('word-control-buttons')
     let allWordsArray = []
     let currentWordContainer = document.getElementById('current-word-container')
     let timerInnerP = document.createElement('p')
@@ -53,8 +54,10 @@ window.addEventListener('DOMContentLoaded', function() {
             timerInnerP.innerText = `Time: ${time}`
             interval = setInterval(countDown, 1000)
             createBoard()
-            currentWordContainer.style = 'visible'
+            currentWordContainer.style.visibility = 'visible'
+            wordControlButtons.style.visibility = 'visible'
             wordsContainer.style.visibility = 'visible'
+            doneButton.style.visibility = 'visible'
             let username = e.target.parentNode.username.value
             fetch('http://localhost:3000/api/v1/games', {
                     method: "POST",
@@ -72,7 +75,7 @@ window.addEventListener('DOMContentLoaded', function() {
     })
 
 
-    currentWordContainer.addEventListener('click', function(e) {
+    wordControlButtons.addEventListener('click', function(e) {
         if (time > 0) {
             if (e.target === clearBoardButton) {
                 letterCoordinates = []
@@ -80,7 +83,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 let allItems = document.getElementsByClassName('item')
                 Array.from(allItems).forEach(item => item.style.backgroundColor = '#80CBC4')
             } else if (e.target === addWordButton) {
-                if (letterBar.innerText < 3) {
+                if (letterBar.innerText.length < 3) {
                     alert('must be longer than 3')
                 } else {
                     allWordsArray.push(letterBar.innerText)
@@ -117,20 +120,28 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     grid.addEventListener('click', function(e) {
-
         let letterXId = parseInt(e.target.dataset.xId)
         let letterYId = parseInt(e.target.dataset.yId)
         let letter = e.target.innerText
-        if (letterCoordinates.includes([letterXId, letterYId])) {
+        if (isArrayItemExists(letterCoordinates,[letterXId,letterYId])) {
             alert('You\'ve already played this letter')
         } else if (letterCoordinates.length > 0 && (letterXId >= letterCoordinates[0][0] + 2 || letterYId >= letterCoordinates[0][1] + 2 || letterXId <= letterCoordinates[0][0] - 2 || letterYId <= letterCoordinates[0][1] - 2)) {
             alert('Can\'t click this')
-        } else {
+        } else if (e.target.className === "item") {
             e.target.style.backgroundColor = '#379683'
-            letterCoordinates.unshift([letterXId, letterYId])
+            letterCoordinates.unshift([letterXId,letterYId])
             letterBar.innerText += letter
         }
     })
+
+    function isArrayItemExists(array , item) {
+        for ( var i = 0; i < array.length; i++ ) {
+            if(JSON.stringify(array[i]) == JSON.stringify(item)){
+                return true;
+            }
+                }
+                return false;
+    }
 
 
     function getRandomIndex() {
