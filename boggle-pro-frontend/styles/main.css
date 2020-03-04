@@ -19,7 +19,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    height: 13%;
+    height: 11%;
     width: 100%;
     font-family: 'Bowreghul';
     padding: 10px;
@@ -103,12 +103,10 @@ input[type=text] {
 #words-container {
     position: relative;
     border-radius: 5px;
-
     border-color: : #379683;
     background-color;
-
     border-color: #379683;
-    background-color:  rgb(183, 211, 209);
+    background-color: rgb(183, 211, 209);
     position: absolute;
     right: 25%;
     top: 200px;
@@ -212,8 +210,8 @@ input[type=text] {
     text-align: center;
     padding: 20px;
     border: 1px solid #888;
-    width: 550px;
-    height: 250px;
+    width: 600px;
+    height: 400px;
     color: #05386B;
     font-size: 3vh;
     /* Could be more or less, depending on screen size */
@@ -296,7 +294,7 @@ input[type=text] {
     padding: 20px;
     border: 1px solid #888;
     width: 700px;
-    height: 450px;
+    height: 500px;
     color: #05386B;
     font-size: x-small;
 }
