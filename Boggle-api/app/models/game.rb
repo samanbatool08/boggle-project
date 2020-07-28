@@ -6,4 +6,5 @@ class Game < ApplicationRecord
         final_score = self.submitted_words.select {|word| word.real == true}.length
         self.update(points: final_score)
     end
+    
 end
